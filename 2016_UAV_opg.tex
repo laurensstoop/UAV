@@ -1,0 +1,200 @@
+% -> commentaar
+
+% De documentclass 'article' is de beste voor bijna elke situatie.
+\documentclass{article}
+
+% Packages:
+\usepackage[a4paper]{geometry} % Om de geometrie van een pagina aan te passen
+\usepackage[dutch]{babel} % Juiste afbreekregels en dergelijke!
+\usepackage{parskip} % Alinea's beginnen links uitgelijnd en er staat een lege regel tussen alinea's.
+\usepackage{amsmath, amssymb, textcomp} % Wiskundige symbolen e.d.
+\usepackage{color} % Kleuren
+\usepackage{graphicx} % Plaatjes
+\usepackage{enumerate} % Voor opsommingen
+\usepackage{url} % Voor het weergeven van hyperlinks
+\usepackage{float} % Zodat enkele plaatjes mooier staan
+\usepackage{listings} % Voor source-code weergeven
+\usepackage{wrapfig} % dit zorgt voor genestelde foto's
+
+%Hier begint het echte document
+\begin{document}
+	\title{\LaTeX cursus UAV \\ Opgaven}
+	\author{Laurens Stoop}
+	\date{5 april 2016}
+	\maketitle
+
+
+
+
+\section{Bouwstenen van \LaTeX}
+
+\subsection{Nieuw document}
+Begin een nieuw a4 document. Geef het een titel, en geef aan wie de auteurs zijn. 
+
+\subsection{Tekstopmaak}\label{opmaak}
+\begin{enumerate}
+	\item Zie de tekst hieronder. Probeer dit na te maken.\\[.1cm]
+	\emph{``Met z'n twee\"en genoten wij van ros\'e terwijl wij een t\^ete-\`a-t\^ete over El Ni\~no hadden.''}
+	\item Zet bovenstaande zin in een sectie.
+	\item Maak nog een paar andere kopjes met willekeurige titels aan, maak ook enkele subsecties aan.
+	\item Maak een inhoudsopgave. Welke kopteksten zie je terug? Waar staat de inhoudsopgave?
+\end{enumerate}
+
+
+\subsection{Opsommingen en lijsten}
+Geef de volgende opsommingen weer. Gebruik voor iedere opsomming een andere manier, waarbij je rekening houdt met de eigenschappen van elke methode.
+\begin{enumerate}
+	\item Maak de lijst van opave \ref{opmaak} na, zowel met punten als genummerd. Wat moet je hiervoor veranderen?
+	\item Een lijst van drie woorden met hun definitie.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Figuren en referenties}
+Deze opgavenserie bestaat uit het namaken van de volgende regels. Het zal vaak handig zijn even in de tex-code van de handleiding te kijken. Maak je in eerste instantie niet druk om de captions die erbij staan.
+\subsection{Spelen met plaatjes}
+\label{sec:Plaatjes}
+Wat een prachtig beest! 
+\begin{figure}[h]
+\includegraphics[scale = 0.5]{tux.jpg}
+\caption{Dit plaatje is te vinden in tux.jpg}
+\label{fig:Giraffe}
+\end{figure}
+Een pinguin hoort lang en hoog te zijn:
+\begin{figure}[h!]
+\includegraphics[height = 5cm, width = 2cm]{tux.jpg}
+\caption{Dit plaatje komt van tux.jpg}
+\label{fig:Lang}
+\end{figure}
+Linux en windows horen niet bij elkaar, maar toch is hier een plaatje van windows onderaan de pagina. \\
+\begin{figure}[b!]
+\includegraphics[scale = 0.3, angle = 150]{win.jpg}
+\caption{Dit plaatje komt van win.jpg. Let op de draaing!}
+\label{fig:asbak}
+\end{figure}
+\newpage
+\subsection{Een genesteld plaatje}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur tincidunt ante. Mauris sit amet risus odio. Nam commodo ultrices cursus. Aenean at purus massa. Nulla a maximus justo. Suspendisse suscipit sed neque placerat pharetra. Etiam consequat sollicitudin elit, in interdum quam finibus in. Quisque sapien elit, faucibus quis feugiat sed, pulvinar in ipsum. Curabitur porta gravida sapien, quis bibendum lectus ultricies vel. Duis a scelerisque lacus. Aliquam erat volutpat.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\caption{Dit plaatje is ingenesteld, net zoals apple.png bij hipsters. Voor deze constructie heb je de wrapfig package nodig. }
+\label{fig: kat}
+\includegraphics[scale = 0.2]{apple}
+
+\end{wrapfigure}
+
+Nunc id dictum augue. Integer ut aliquam sapien. Proin ac gravida lorem. Nam id volutpat leo, a lacinia neque. Sed iaculis tempor tortor feugiat venenatis. Pellentesque consequat semper augue, quis tempus ligula blandit ut. Duis sit amet nisi sit amet massa dignissim vulputate.
+
+
+
+Duis eleifend dictum est. Aenean blandit vitae leo ut ullamcorper. Curabitur pulvinar, risus a placerat dapibus, lorem diam mollis est, et tincidunt mi risus nec sem. Ut at rhoncus ex. Suspendisse faucibus ex quis efficitur facilisis. Donec vehicula magna eget bibendum tincidunt. Integer pharetra nisl dolor, quis dapibus nunc maximus eget. 
+
+\begin{figure}[t!]
+\centering
+\includegraphics[scale = 0.35]{android}
+\caption{Het android logo bovenaan de pagina,netjes in het midden, de code staat echter pas na het hele stuk \emph{lorem ipsum} \ldots. Het plaatje is te vinden onder android.jpg}
+\label{fig:aeslogo}
+\end{figure}
+\newpage
+
+\section{Referenties}
+Maak onderstaande tekst na met behulp van referenties
+
+In deze sectie kijken we terug op de plaatjes. Zie tabel \ref{tab:overzicht} van welke plaatjes we gehad hebben en wat er bijzonder aan was.
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c}
+tux & Dit plaatje moest verkleind worden \\
+tux & Dit plaatje moest niet lineair geschaald worden. \\
+win & Dit plaatje moest gedraaid worden. \\
+apple & Helemaal ingewikkeld in tekst. \\
+android & Netjes in het midden. \\
+\end{tabular}
+\caption{Een overzicht van de plaatjes die we gebruikt hebben.}
+\label{tab:overzicht}
+\end{table}
+
+Hieronder nog wat extra opdrachten om te oefenen met labels en referenties.
+\begin{enumerate}
+\item De eerste opdracht is om tabel \ref{tab:overzicht} over te nemen. 
+\item Voeg captions toe aan de figuren die je gebruikt hebt.
+\item Voeg labels toe aan de figuren die je gebruikt hebt. Let op de het label altijd NA de caption moet komen. 
+\item Neem het tekstje hieronder over met behulp van labels en referenties:
+\end{enumerate}
+
+In sectie \ref{sec:Plaatjes} beginnende op pagina \pageref{sec:Plaatjes} hebben we plaatjes geintroduceerd. Plaatje \ref{fig:Lang} van de hele lange giraffe op pagina \pageref{fig:Lang} gaf een goed voorbeeld van plaatjes uitrekken. In tabel \ref{tab:overzicht} vinden we een handmatig overzicht gemaakt door onszelf. Veel makkelijker is echter de lijst gegeven door het commando \textbackslash \{listoffigures \} te vinden in sectie \ref{sec:figlist}.
+
+
+\subsection{Bibliografie}
+
+\begin{enumerate}
+\item Maak een document en beschijf in de eerste alinea hoe geweldig je wel niet bent. Citeer daarbij je eigen autobiografie genaamd ``Ik, \ldots''. Bedenk zelf wat de relevante gegevens (auteur, jaar, etc.) van dit ongetwijfeld dikke boekwerk zijn. 
+\item De volgende alinea beschrijft de overweldigend succesvolle geboorte van \ldots\ldots jezelf! Dit staat natuurlijk ook in het eerste hoofstuk van je boek. Verwijs naar dit hoofstuk. 
+\item Een mijlpaal in je leven is je eerste wetenschappelijke artikel. Natuurlijk is een citatie hier op zijn plaats. Welke gegevens zijn nu van belang?
+\end{enumerate}\newpage
+
+\subsection{Een diep genestelde sectie}\label{sec:figlist}
+\listoffigures
+
+
+\newpage
+\section{Mathmode en tabellen}
+
+\subsection{Wiskunde in \LaTeX}
+Deze opgavenserie bestaat uit het namaken van de volgende regels. Het zal vaak handig zijn even in de tex-code van de handleiding te kijken. 
+\begin{align}
+(\alpha + \beta)^2 & = (\alpha + \beta)(\alpha + \beta)\\
+					& = \alpha \alpha + \alpha \beta + \beta \alpha + \beta \beta\\
+					& = \alpha^2 + 2 \alpha\beta + \beta^2
+\end{align}
+Nu dezelfde maar dan zonder referentienummers:
+\begin{align*}
+(\alpha + \beta)^2 & = (\alpha + \beta)(\alpha + \beta)\\
+					& = \alpha \alpha + \alpha \beta + \beta \alpha + \beta \beta\\
+					& = \alpha^2 + 2 \alpha\beta + \beta^2
+\end{align*}
+Witruimte kan je maken met het commando \texttt{quad} of met een tilde
+\begin{equation}
+\sum_{n=1}^{\infty}z^n = \frac{1}{1-z}, \qquad |z|<1
+\end{equation}
+
+\begin{equation}
+\int_a^b\!x^2 \mathrm{d} x = \frac{1}{3}(b^3 - a^3)
+\end{equation}
+
+
+\begin{equation}
+\oint \nabla f \mathrm{d} t = 0
+\end{equation}
+
+
+
+\subsection{Tabellen}
+Het doel van deze opgaven is kijken op welke manieren tabellen werken. Probeer onderstaande tabel na te maken. Snap je waar ieder teken goed voor is?
+\begin{table}[h]
+	\begin{tabular}[width=\textwidth]{|l||llp{5cm}|}
+		\hline
+		\textbf{Familie} & \textbf{Huisdier 1} & \textbf{Huisdier 2} & \textbf{Omgang met dieren}\\
+		\hline
+		Pietersen & Golden retriever & - &  Erg terratoriaal, soms wel heel veel commando's en erg streng. De retriever heet henk en luisterd alleen naar ingrid, bijzonder dit. \\
+		Simpsons & Hond (ras onbekend) & Kat & Bijzonder familie die door hun gele huidaandoening niet lijkt te functioneren. \\
+		UAV & ? & ? & Tja \ldots \\		
+		\hline
+	\end{tabular}
+\caption{Tabel van enkele families en hun huisdieren.}
+\end{table}
+
+
+
+
+\end{document}
